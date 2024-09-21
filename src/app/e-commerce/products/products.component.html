@@ -3,7 +3,8 @@
     <img
           [src]="'http://localhost/assessment-e-commerce/mainmodule/' + product.image_path"
           class="card-img-top"
-          />
+          data-bs-toggle="modal" data-bs-target="#viewItemModal"
+          (click) = "viewItem(product.id)"/>
     <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
       <p class="card-text">{{ product.description }}</p>
@@ -13,6 +14,27 @@
         Add Item
       </button>
     </div>
+  </div>
+</div>
+
+<div class="modal fade" id="viewItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div *ngFor="let product of selectedproduct">
+    <div class="modal-content">
+      <img
+      [src]="'http://localhost/assessment-e-commerce/mainmodule/' + product.image_path"
+      class="card-img-top"/>
+<div class="card-body">
+  <h5 class="card-title">{{ product.name }}</h5>
+  <p class="card-text">{{ product.description }}</p>
+</div>
+<div class="card-footer">
+  <button class="btn btn-primary" (click)="addToCart(product.id)">
+    Add Item
+  </button>
+</div>
+    </div>
+  </div>
   </div>
 </div>
 

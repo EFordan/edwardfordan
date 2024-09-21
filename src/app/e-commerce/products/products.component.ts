@@ -13,6 +13,7 @@ export class ProductsComponent {
   @Input() products: any;
   @Output() addedItemToCart = new EventEmitter<any>();
   @Input() cart: Cart[] = [];
+  selectedproduct: any;
   
 
   constructor(private ecs: ECommerceServiceService) {}
@@ -57,5 +58,14 @@ export class ProductsComponent {
         text: "Item already in your cart",
       });
     }
+  }
+
+
+  viewItem(id:number) {
+    console.log(`view item with id ${id} clicked`);
+    this.ecs.getProduct(id).subscribe(product => {
+      this.selectedproduct = product.payload;
+      console.log(this.selectedproduct);
+    })
   }
 }

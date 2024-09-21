@@ -34,6 +34,13 @@ export class ECommerceServiceService {
       );
     }
 
+    getProduct(id:number): Observable<ApiResponse> {
+      return this.http.get<ApiResponse>(this.apiUrl + '/get-product/' + id).pipe(
+        tap(data => console.log('Fetched data from products', data)),
+        catchError(this.handleError<ApiResponse>('getProduct', { payload: [] }))
+      );
+    }
+
     getCart(): Observable<ApiResponse> {
       return this.http.get<ApiResponse>(this.apiUrl + '/get-all-cart-per-user/' + localStorage.getItem('user_id')).pipe(
         tap(data => console.log('Fetched data form cart', data)),
