@@ -69,6 +69,10 @@ switch($_SERVER['REQUEST_METHOD']){
                 echo json_encode($get->get_all_cart_per_user("cart", $req[1]));
             break;
 
+            case 'get-product':
+                echo json_encode($get->get_common("products", null, "id = '$req[1]'"));
+            break;
+
             default:
             echo "request not found";
             break;
