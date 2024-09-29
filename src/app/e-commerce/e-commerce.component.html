@@ -1,27 +1,29 @@
 <nav class="navbar navbar-light bg-light">
   <div class="container">
     <b><span class="navbar-brand">EMF-commerce</span></b>
-    <!-- Logout Button -->
-    <div class="ms-auto">
-      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    <!-- Right-aligned buttons (MY CART and Logout) -->
+    <div class="ms-auto d-flex align-items-center">
+      <!-- MY CART Button -->
+      <button
+        type="button"
+        class="btn btn-primary me-2"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        (click)="getCart()"
+      >
+        MY CART
+      </button>
+
+      <!-- Logout Button -->
+      <button class="btn btn-danger" (click)="logout()">
+        Logout
+      </button>
     </div>
   </div>
 </nav>
 
 <div class="container">
-  <!-- Button trigger modal -->
-  <div class="my-5">
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#exampleModal"
-      (click)="getCart()"
-    >
-      MY CART
-    </button>
-  </div>
-
+  <!-- Products Section -->
   <app-products
     [products]="items"
     [cart]="cart"
@@ -29,29 +31,15 @@
   ></app-products>
 
   <!-- Modal -->
-  <div
-    class="modal fade"
-    id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Kariton ng EMF</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <app-cart
-            [cart_items]="cart"
-            (removedItem)="refreshCart($event)"
-          ></app-cart>
+          <app-cart [cart_items]="cart" (removedItem)="refreshCart($event)"></app-cart>
         </div>
       </div>
     </div>
