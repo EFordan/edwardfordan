@@ -12,6 +12,7 @@ import { CartComponent } from './e-commerce/cart/cart.component';
 import { ECommerceServiceService } from './e-commerce-service.service';
 import { LoginComponent } from './login/login.component';
 import { CartsComponent } from './e-commerce/carts/carts.component';
+import { CartOtherPageComponent } from './e-commerce/cart-other-page/cart-other-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CartsComponent } from './e-commerce/carts/carts.component';
     OrdersComponent,
     CartComponent,
     LoginComponent,
-    CartsComponent
+    CartsComponent,
+    CartOtherPageComponent
   ],
   imports: [
     BrowserModule,
