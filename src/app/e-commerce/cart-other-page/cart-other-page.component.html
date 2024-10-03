@@ -1,43 +1,46 @@
-<!-- <ul>
-    <li *ngFor="let cart_item of cart_items">
-      {{ cart_item.name }}  
-        <form [formGroup]="myForm">
-          <input formControlName="myInput" />
-        </form> 
-        PHP {{ cart_item.price }}&nbsp;&nbsp;<button (click)="removeItemFromCart(cart_item)">Remove</button>
-    </li>
-  </ul> -->
+<h3 class="mt-4 mb-3 ms-3 fw-bold">My Cart</h3> <!-- Added fw-bold for bold font -->
 
-  <table cellpadding="5" cellspacing="0">
-    <thead>
-      <tr>
-        <th>Item</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let cart_item of cart; let i = index">
-        <td>{{ cart_item.name }}</td>
-        <td>
-          <input
-            type="number"
-            [(ngModel)]="cart_item.quantity"
-            placeholder="Enter value"
-          />
-        </td>
-        <td>{{ cart_item.price | currency }}</td>
-        <td>
-          <button class="btn btn-primary" (click)="removeItemFromCart(cart_item)">Remove</button>
-        </td>
-        <!-- <div>{{cart_item | json}}</div>
-        <div>{{cart_item.name}}</div> -->
-      </tr>
-      <tr>
-        <td>Total Price: {{ getTotalPrice() | currency }}</td>
-        <td><button class="btn btn-danger " data-bs-dismiss="modal" (click)="checkout(getTotalPrice())">Checkout</button></td>
-      </tr>
-    </tbody>
-  </table>
-  
+<table class="table table-striped table-hover mt-4">
+  <thead class="table-dark">
+    <tr>
+      <th class="p-3">Item</th>
+      <th class="p-3">Quantity</th>
+      <th class="p-3">Price</th>
+      <th class="p-3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cart_item of cart; let i = index">
+      <td class="p-3">{{ cart_item.name }}</td>
+      <td class="p-3">
+        <input
+          type="number"
+          [(ngModel)]="cart_item.quantity"
+          placeholder="Enter value"
+          class="form-control w-50"
+          min="1"
+        />
+      </td>
+      <td class="p-3">{{ cart_item.price | currency:'USD':'symbol' }}</td>
+      <td class="p-3">
+        <button class="btn btn-sm btn-outline-danger" (click)="removeItemFromCart(cart_item)">Remove</button>
+      </td>
+    </tr>
+    <tr class="table-light">
+      <td colspan="2" class="text-end fw-bold p-3">Total Price:</td>
+      <td colspan="2" class="text-start p-3">{{ getTotalPrice() | currency:'USD':'symbol' }}</td>
+    </tr>
+    <tr>
+      <td colspan="4" class="text-end p-3">
+        <button class="btn btn-lg btn-danger" (click)="checkout(getTotalPrice())">
+          <img width="30" height="30" src="https://img.icons8.com/ios-filled/50/FFFFFF/checkout.png" alt="checkout"/>Checkout
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-secondary mt-3 ms-3" [routerLink]="['/home']">
+  <img width="34" height="34" src="https://img.icons8.com/ios-filled/34/FFFFFF/long-arrow-left.png" alt="long-arrow-left"/>
+  Back to Home
+</button>

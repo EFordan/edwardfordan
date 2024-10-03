@@ -10,8 +10,9 @@
       <p class="card-text">{{ product.description }}</p>
     </div>
     <div class="card-footer">
+      <!-- Add Item Button with Plus Icon -->
       <button class="btn btn-primary" (click)="addToCart(product.id)">
-        Add Item
+        <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/shopping-cart--v1.png" alt="shopping-cart--v1"/> Add Item
       </button>
     </div>
   </div>
@@ -29,12 +30,12 @@
   <p class="card-text">{{ product.description }}</p>
 </div>
 <div class="card-footer">
+  <!-- Add Item Button with Plus Icon inside the Modal -->
   <button class="btn btn-primary" (click)="addToCart(product.id)">
-    Add Item
+    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/shopping-cart--v1.png" alt="shopping-cart--v1"/> Add Item
   </button>
 </div>
     </div>
   </div>
   </div>
 </div>
-
