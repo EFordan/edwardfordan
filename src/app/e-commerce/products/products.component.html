@@ -20,7 +20,7 @@
 
 <div class="modal fade" id="viewItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div *ngFor="let product of selectedproduct">
+    <div  class="card" style="width: 18rem" *ngFor="let product of selectedproduct">
     <div class="modal-content">
       <img
       [src]="'http://localhost/assessment-e-commerce/mainmodule/' + product.image_path"

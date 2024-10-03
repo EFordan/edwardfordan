@@ -19,9 +19,10 @@
           placeholder="Enter value"
           class="form-control w-50"
           min="1"
+          (ngModelChange)="onQuantityChange($event, cart_item.price, i)"
         />
       </td>
-      <td class="p-3">{{ cart_item.price | currency:'USD':'symbol' }}</td>
+      <td class="p-3">{{ calculateTotal(cart_item.quantity, cart_item.price) | currency:'USD':'symbol' }}</td>
       <td class="p-3">
         <button class="btn btn-sm btn-outline-danger" (click)="removeItemFromCart(cart_item)">Remove</button>
       </td>

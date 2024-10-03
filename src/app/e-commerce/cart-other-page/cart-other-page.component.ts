@@ -59,6 +59,17 @@ export class CartOtherPageComponent {
       );
     }
 
+    
+    onQuantityChange(newQuantity: number, cartItemPrice: number, index: number) {
+      this.cart[index].quantity = newQuantity;  // Update the quantity in the cart
+      this.cart[index].totalPrice = newQuantity * cartItemPrice; // Update the total price if needed
+      console.log(newQuantity, cartItemPrice, index);
+    }
+
+    calculateTotal(quantity: number, price: number): number {
+      return quantity * price;
+    }
+
     checkout(totalPrice: number) {
 
 
